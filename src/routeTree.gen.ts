@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MeetingSummarizerRouteImport } from './routes/meeting-summarizer'
+import { Route as PromptCoachRouteImport } from './routes/prompt-coach'
+import { Route as ResponsibleAiRouteImport } from './routes/responsible-ai'
+import { Route as SmartEmailRouteImport } from './routes/smart-email'
+import { Route as TaskPlannerRouteImport } from './routes/task-planner'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MeetingSummarizerRoute = MeetingSummarizerRouteImport.update({
+  id: '/meeting-summarizer',
+  path: '/meeting-summarizer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PromptCoachRoute = PromptCoachRouteImport.update({
+  id: '/prompt-coach',
+  path: '/prompt-coach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResponsibleAiRoute = ResponsibleAiRouteImport.update({
+  id: '/responsible-ai',
+  path: '/responsible-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmartEmailRoute = SmartEmailRouteImport.update({
+  id: '/smart-email',
+  path: '/smart-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaskPlannerRoute = TaskPlannerRouteImport.update({
+  id: '/task-planner',
+  path: '/task-planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/meeting-summarizer': typeof MeetingSummarizerRoute
+  '/prompt-coach': typeof PromptCoachRoute
+  '/responsible-ai': typeof ResponsibleAiRoute
+  '/smart-email': typeof SmartEmailRoute
+  '/task-planner': typeof TaskPlannerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/meeting-summarizer': typeof MeetingSummarizerRoute
+  '/prompt-coach': typeof PromptCoachRoute
+  '/responsible-ai': typeof ResponsibleAiRoute
+  '/smart-email': typeof SmartEmailRoute
+  '/task-planner': typeof TaskPlannerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/meeting-summarizer': typeof MeetingSummarizerRoute
+  '/prompt-coach': typeof PromptCoachRoute
+  '/responsible-ai': typeof ResponsibleAiRoute
+  '/smart-email': typeof SmartEmailRoute
+  '/task-planner': typeof TaskPlannerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/meeting-summarizer'
+    | '/prompt-coach'
+    | '/responsible-ai'
+    | '/smart-email'
+    | '/task-planner'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/meeting-summarizer'
+    | '/prompt-coach'
+    | '/responsible-ai'
+    | '/smart-email'
+    | '/task-planner'
+  id:
+    | '__root__'
+    | '/'
+    | '/meeting-summarizer'
+    | '/prompt-coach'
+    | '/responsible-ai'
+    | '/smart-email'
+    | '/task-planner'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MeetingSummarizerRoute: typeof MeetingSummarizerRoute
+  PromptCoachRoute: typeof PromptCoachRoute
+  ResponsibleAiRoute: typeof ResponsibleAiRoute
+  SmartEmailRoute: typeof SmartEmailRoute
+  TaskPlannerRoute: typeof TaskPlannerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/meeting-summarizer': {
+      id: '/meeting-summarizer'
+      path: '/meeting-summarizer'
+      fullPath: '/meeting-summarizer'
+      preLoaderRoute: typeof MeetingSummarizerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prompt-coach': {
+      id: '/prompt-coach'
+      path: '/prompt-coach'
+      fullPath: '/prompt-coach'
+      preLoaderRoute: typeof PromptCoachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/responsible-ai': {
+      id: '/responsible-ai'
+      path: '/responsible-ai'
+      fullPath: '/responsible-ai'
+      preLoaderRoute: typeof ResponsibleAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-email': {
+      id: '/smart-email'
+      path: '/smart-email'
+      fullPath: '/smart-email'
+      preLoaderRoute: typeof SmartEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/task-planner': {
+      id: '/task-planner'
+      path: '/task-planner'
+      fullPath: '/task-planner'
+      preLoaderRoute: typeof TaskPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MeetingSummarizerRoute: MeetingSummarizerRoute,
+  PromptCoachRoute: PromptCoachRoute,
+  ResponsibleAiRoute: ResponsibleAiRoute,
+  SmartEmailRoute: SmartEmailRoute,
+  TaskPlannerRoute: TaskPlannerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
