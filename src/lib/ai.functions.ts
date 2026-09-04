@@ -72,10 +72,10 @@ Never schedule work outside the available start/end time, never overlap blocks, 
   return `${task}\n\nDETAILS:\n${fields}${prev}${refine ? `\n\nREVISION INSTRUCTION: ${refine}` : ""}`;
 }
 
-function gateway(runId?: string) {
+function gateway(options?: { structuredOutputs?: boolean }) {
   const key = process.env["LOVABLE_API_KEY"];
   if (!key) throw new Error("AI is not configured yet. Please try again later.");
-  return createLovableAiGatewayProvider(key, runId);
+  return createLovableAiGatewayProvider(key, undefined, options ?? {});
 }
 
 function friendlyError(error: unknown): never {
@@ -130,7 +130,7 @@ export const coachPrompt = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => z.object({ prompt: z.string().min(1) }).parse(input))
   .handler(async ({ data }): Promise<CoachResult> => {
     try {
-      const provider = gateway();
+      const provider = gateway({ structuredOutputs: true });
       const result = streamText({
         model: provider(MODEL),
         system: `${GUARDRAIL}\nYou are an expert prompt engineering coach.`,
