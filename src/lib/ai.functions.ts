@@ -143,7 +143,11 @@ USER PROMPT:
 """${data.prompt}"""`,
       });
       const output = (await result.output) as CoachResult;
-      return { ...output, score: Math.max(0, Math.min(100, Math.round(output.score))) };
+      return {
+        ...output,
+        improvedPrompt: output.improvedPrompt.replace(/\\n/g, "\n").trim(),
+        score: Math.max(0, Math.min(100, Math.round(output.score))),
+      };
     } catch (error) {
       if (NoObjectGeneratedError.isInstance(error)) {
         throw new Error("The AI could not analyse that prompt. Please try rephrasing it.");
