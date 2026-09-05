@@ -1,138 +1,152 @@
-# Next Level AI
+# Next Level East Academy – AI Workplace Productivity Assistant
 
-Build a modern, responsive web app called **Next Level East Academy – AI Workplace Productivity Assistant**.
+**Tagline:** *Work Smarter. Think Better. Perform at Your Next Level.*
 
-**Tagline:** “Work Smarter. Think Better. Perform at Your Next Level.”
+A modern, responsive web application that helps workplace teams and individuals boost productivity with AI-powered tools for email writing, meeting summaries, task planning, and prompt improvement — all wrapped in a clean, football-club-inspired design that communicates teamwork, strategy, discipline, and excellence.
 
-### Main Features
+## Live Demo
 
-**1. Smart Email Generator**
+- **Preview URL:** https://id-preview--07e2fc8d-aa86-42b1-8c41-e77d434fa968.lovable.app
+- **Published URL:** https://level-up-ai-work.lovable.app
 
-* Form fields: audience, purpose, context, key points, tone, length, desired outcome.
+## Features
 
-* Tones: Formal, Professional, Friendly, Informal, Persuasive.
+### 1. Smart Email Generator
+Generate professional emails from a brief:
+- Audience, purpose, context, key points, tone, length, and desired outcome
+- Tones: Formal, Professional, Friendly, Informal, Persuasive
+- One-click actions: Copy, Edit, Regenerate, Make Shorter, Make More Formal, Make Friendlier, Clear
+- Safety guardrails prevent invented names, dates, facts, or commitments
 
-* Generate a professional email with subject + body.
+### 2. Meeting Notes Summarizer
+Turn raw meeting notes into structured summaries:
+- Objective, key points, decisions, action items, responsible person, deadlines, outstanding issues, next steps
+- Missing information is clearly marked as **“Not specified”**
+- One-click actions: Copy, Edit, Regenerate, Make Shorter, Clear
 
-* Buttons: Copy, Edit, Regenerate, Make Shorter, Make More Formal, Make Friendlier, Clear.
+### 3. AI Task Planner
+Build realistic daily/weekly schedules from your workload:
+- Inputs: tasks, deadlines, available start/end time, commitments, planning period
+- Tasks prioritized as High, Medium, or Low
+- Output includes time-blocked schedule, Top 3 Priorities, time-optimization tips, and end-of-day review
+- Refuses to create impossible schedules and explains overflow clearly
 
-* Never invent missing names, dates, facts, or commitments.
+### 4. Prompt Coach
+Analyze and improve any AI prompt:
+- 0–100 prompt quality score
+- Six-dimension analysis: Role, Objective, Context, Requirements, Output Format, Constraints
+- Strengths, missing information, improved prompt, and rationale
+- Side-by-side original vs. improved comparison with copy action
 
-**2. Meeting Notes Summarizer**
-
-* Inputs: meeting name, date, participants, meeting notes.
-
-* Generate: objective, key points, decisions, action items, responsible person, deadlines, outstanding issues, next steps.
-
-* Use “Not specified” when information is missing.
-
-* Buttons: Copy, Edit, Regenerate, Make Shorter, Clear.
-
-**3. AI Task Planner**
-
-* Inputs: tasks, deadlines, available start/end time, commitments, planning period.
-
-* Prioritize tasks as High, Medium, or Low.
-
-* Generate a realistic schedule with time, task, priority, and expected outcome.
-
-* Include Top 3 Priorities, time-optimization tips, and end-of-day review.
-
-* Do not create impossible schedules.
-
-**4. Prompt Coach**
-
-* User enters a prompt.
-
-* Analyze Role, Objective, Context, Requirements, Output Format, and Constraints.
-
-* Give a 0–100 prompt quality score.
-
-* Show strengths, missing information, an improved prompt, and why it is better.
-
-* Include original vs improved prompt comparison.
-
-**5. Responsible AI**
-
-Create a simple educational section covering AI limitations, bias, privacy, fact-checking, and human oversight.
-
-Display: “AI-generated content may contain errors. Review and validate important information before using it.”
+### 5. Responsible AI
+An educational section covering:
+- AI limitations and hallucinations
+- Bias and fairness
+- Privacy and data handling
+- Fact-checking and verification
+- Human oversight and accountability
+- Pre-send checklist and an always-visible disclaimer
 
 ### Dashboard
+A professional home screen with:
+- Four feature cards (Smart Email, Meeting Summarizer, Task Planner, Prompt Coach)
+- Today’s priorities, completed tasks, upcoming deadlines, and recent activity
+- Sample data clearly marked for demonstration
 
-Create a professional dashboard with four feature cards:
+## Design
 
-* Smart Email
+- **Visual style:** Clean, premium, professional, football-club-inspired
+- **Color palette:** Deep navy, emerald pitch green, championship gold, crisp white
+- **Typography:** Barlow Condensed headings, Manrope body text
+- **UI elements:** Modern cards, subtle pitch/grid textures, clear buttons, responsive spacing
+- **Fully responsive:** Desktop, tablet, and mobile
 
-* Meeting Summarizer
+## Tech Stack
 
-* Task Planner
+- [TanStack Start](https://tanstack.com/start) – full-stack React framework
+- [React 19](https://react.dev/) – UI library
+- [TypeScript](https://www.typescriptlang.org/) – type-safe development
+- [Tailwind CSS v4](https://tailwindcss.com/) – utility-first styling
+- [Radix UI](https://www.radix-ui.com/) – accessible UI primitives
+- [Lovable AI Gateway](https://docs.lovable.dev/features/ai-gateway) – secure AI generation
+- [Vite](https://vitejs.dev/) – build tool
 
-* Prompt Coach
+## Project Structure
 
-Include today's priorities, completed tasks, upcoming deadlines, and recent activity.
+```text
+src/
+├── components/
+│   ├── AppShell.tsx          # Responsive navigation and layout shell
+│   └── ResultPanel.tsx       # Shared result display and action panel
+├── lib/
+│   ├── ai-gateway.server.ts  # Lovable AI gateway configuration
+│   ├── ai.functions.ts       # Server functions for AI tools
+│   ├── sample-data.ts        # Demo data for all tools and dashboard
+│   └── utils.ts              # Utility helpers
+├── routes/
+│   ├── __root.tsx            # Root layout, fonts, metadata, toasts
+│   ├── index.tsx             # Dashboard
+│   ├── smart-email.tsx       # Smart Email Generator
+│   ├── meeting-summarizer.tsx# Meeting Notes Summarizer
+│   ├── task-planner.tsx      # AI Task Planner
+│   ├── prompt-coach.tsx      # Prompt Coach
+│   └── responsible-ai.tsx    # Responsible AI education page
+├── router.tsx                # TanStack Router setup
+├── start.ts                  # Start app entry
+└── styles.css                # Global styles and design tokens
+```
 
-### Design
+## Getting Started
 
-Use a **clean, premium, professional football-club-inspired design** without copying any existing club branding or logos. The design should communicate **teamwork, strategy, discipline, performance, progress, and excellence**.
+### Prerequisites
 
-Use strong typography, modern cards, subtle pitch/grid-inspired elements, professional icons, clear buttons, and excellent spacing.
+- Node.js (recommended via [nvm](https://github.com/nvm-sh/nvm))
+- npm or bun
 
-Make it fully responsive for desktop, tablet, and mobile.
-
-### UX & Functionality
-
-* Add clear navigation: Dashboard, Smart Email, Meeting Summarizer, Task Planner, Prompt Coach, Responsible AI.
-
-* Include loading states while AI is processing.
-
-* Add form validation and friendly error messages.
-
-* All buttons must work.
-
-* Allow users to copy and edit generated results.
-
-* Never fabricate information.
-
-* Keep AI API keys secure using environment variables.
-
-* Structure the AI responses so they are easy to display in the UI.
-
-* Include sample data for demonstration, clearly marked “Sample Data.”
-
-### Learning Goals
-
-The application must demonstrate:
-
-1. Introduction to AI
-
-2. AI productivity automation
-
-3. Effective prompting
-
-4. Responsible AI
-
-5. Innovative AI workplace solutions
-
-Build the **actual functional application**, not just a landing page or mockup.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/07e2fc8d-aa86-42b1-8c41-e77d434fa968).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+### Install dependencies
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+npm install
+# or
+bun install
 ```
+
+### Run the development server
+
+```sh
+npm run dev
+# or
+bun run dev
+```
+
+The app will be available at `http://localhost:8080`.
+
+### Build for production
+
+```sh
+npm run build
+# or
+bun run build
+```
+
+## Environment Variables
+
+The app uses the Lovable AI Gateway for secure, server-side AI generation. No API keys are exposed in the browser. Required environment variables are managed by Lovable Cloud when deployed.
+
+## Learning Goals
+
+This application demonstrates:
+
+1. Introduction to AI in the workplace
+2. AI productivity automation
+3. Effective prompting techniques
+4. Responsible AI usage
+5. Innovative AI-powered workplace solutions
+
+## License
+
+This project is built and owned by the creator. All rights reserved.
+
+---
+
+Built with [Lovable](https://lovable.dev).
